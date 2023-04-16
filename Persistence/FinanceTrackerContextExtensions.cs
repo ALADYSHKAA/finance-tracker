@@ -77,14 +77,14 @@ public static class FinanceTrackerDataModelBuilderExtensions
                     Id = (long) PredefinedRoles.SuperAdmin,
                     Title = PredefinedRoles.SuperAdmin.ToString(),
                     Description = PredefinedRoles.SuperAdmin.GetDescription(),
-                    Created = new DateTime(2023, 04, 16),
+                    Created = new DateTime(2023, 04, 16, 0,0,0,0, DateTimeKind.Utc),
                 },
                 new Role
                 {
                     Id = (long) PredefinedRoles.RolesAdmin,
                     Title = PredefinedRoles.RolesAdmin.ToString(),
                     Description = PredefinedRoles.SuperAdmin.GetDescription(),
-                    Created = new DateTime(2023, 04, 16),
+                    Created = new DateTime(2023, 04, 16, 0,0,0,0, DateTimeKind.Utc),
                 }
             );
     }

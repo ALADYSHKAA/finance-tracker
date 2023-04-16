@@ -25,7 +25,7 @@ public class RequestValidationBehavior<TRequest, TResponse> : IPipelineBehavior<
         var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
         if (failures.Count != 0)
-            throw new TenderBotValidationException(failures);
+            throw new FinanceTrackerValidationException(failures);
         return await next();
     }
 }

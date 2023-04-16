@@ -12,3 +12,13 @@ public class RoleConfiguration : IEntityTypeConfiguration<UserRole>
         builder.HasKey(x => new {x.RoleId, x.UserId});
     }
 }
+
+public class RolePermissionConfiguration : IEntityTypeConfiguration<RolePermission>
+{
+    public void Configure(EntityTypeBuilder<RolePermission> builder)
+    {
+        builder.HasKey(x => new {x.RoleId, x.PermissionId});
+    }
+}
+
+

@@ -46,8 +46,7 @@ public partial class FinanceTrackerContext : DbContext, IFinanceTrackerContext
         return await base.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task<int> SaveChangesAndLogToChanges(string changesDescription,
-                                                      CancellationToken cancellationToken = new())
+    public new async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
     {
         var userId = _userIdService.GetImposerId() ?? _userIdService.GetUserId();
 

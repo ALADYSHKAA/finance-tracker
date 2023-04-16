@@ -13,10 +13,9 @@ public class EditUserCmd : IRequest<long>, IMapTo<User>
 {
     public long Id { get; set; }
     public string FirstName { get; set; }
-    public string Email { get; set; }
     public string LastName { get; set; }
-    public string Nickname { get; set; }
-    public long? BotConversationId { get; set; }
+    public string? Nickname { get; set; }
+    public string Email { get; set; }
     public bool Disabled { get; set; }
 }
 
@@ -35,7 +34,7 @@ public class EditUserCmdHandler : IRequestHandler<EditUserCmd, long>
 
     public async Task<long> Handle(EditUserCmd request, CancellationToken cancellationToken)
     {
-        User? user;
+        User? user = null ;
 
         if (request.Id is not 0)
         {
@@ -43,7 +42,9 @@ public class EditUserCmdHandler : IRequestHandler<EditUserCmd, long>
             if (user is null) throw new NotFoundException(request.Id, nameof(User));
         }
 
-        user = _mapper.Map<User>(request);
+        user ??= new ();
+
+        _mapper.Map(request, user);
 
         _context.Users.Update(user);
         await _context.SaveChangesAsync(cancellationToken);
@@ -58,6 +59,5 @@ public class EditUserCmdValidator : AbstractValidator<EditUserCmd>
     {
         RuleFor(x => x.FirstName).NotEmpty();
         RuleFor(x => x.LastName).NotEmpty();
-        RuleFor(x => x.Email).NotEmpty();
     }
 }

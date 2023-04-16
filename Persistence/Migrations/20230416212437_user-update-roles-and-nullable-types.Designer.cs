@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Persistence;
@@ -11,9 +12,11 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(FinanceTrackerContext))]
-    partial class FinanceTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20230416212437_user-update-roles-and-nullable-types")]
+    partial class userupdaterolesandnullabletypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,18 +67,18 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = -1L,
-                            Created = new DateTime(2023, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(2023, 4, 16, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Супер Админ",
                             Title = "SuperAdmin",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = -2L,
-                            Created = new DateTime(2023, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(2023, 4, 16, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Супер Админ",
                             Title = "RolesAdmin",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         });
                 });
 
@@ -151,62 +154,62 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = -100L,
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Disabled = false,
                             Email = "set-some-email-later@finance-tracker.ru",
                             FirstName = "Link",
                             LastName = "One",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = -1L,
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Disabled = false,
                             Email = "sa@finance-tracker.ru",
                             FirstName = "Отто",
                             LastName = "Нормалвербраухер",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = -2L,
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Disabled = false,
                             Email = "stierlitz@finance-tracker.ru",
                             FirstName = "Всеволод",
                             LastName = "Штирлиц",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = -3L,
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Disabled = false,
                             Email = "curie@finance-tracker.ru",
                             FirstName = "Мария",
                             LastName = "Кюри",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = -4L,
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Disabled = false,
                             Email = "einstein@finance-tracker.ru",
                             FirstName = "Альберт",
                             LastName = "Эйнштейн",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = -5L,
-                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Disabled = false,
                             Email = "monroe@finance-tracker.ru",
                             FirstName = "Мерлин",
                             LastName = "Монро",
-                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Updated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         });
                 });
 

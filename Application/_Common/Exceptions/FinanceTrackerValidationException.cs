@@ -6,15 +6,15 @@ using LinqKit;
 namespace Application._Common.Exceptions;
 
 [Serializable]
-public class TenderBotValidationException : Exception
+public class FinanceTrackerValidationException : Exception
 {
-    public TenderBotValidationException()
+    public FinanceTrackerValidationException()
         : base("One or more validation failures have occurred.")
     {
         Failures = new Dictionary<string, string[]>();
     }
 
-    public TenderBotValidationException(List<ValidationFailure> failures)
+    public FinanceTrackerValidationException(List<ValidationFailure> failures)
         : base(GenerateErrorMessage(failures))
     {
         var propertyNames = failures

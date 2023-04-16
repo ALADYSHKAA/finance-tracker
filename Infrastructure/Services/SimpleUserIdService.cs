@@ -17,7 +17,7 @@ namespace Infrastructure.Services
         {
             if (_accessor.HttpContext is null) return (long) WellKnownEmployeeIds.FinanceTrackerPlatform;
             
-            var id = _accessor.HttpContext?.Session.GetInt32("userId");
+            var id = _accessor.HttpContext?.Session?.GetInt32("userId");
             return id ?? (long) WellKnownEmployeeIds.TestSuperAdminEmployee;
         }
 
