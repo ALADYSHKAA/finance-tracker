@@ -1,0 +1,65 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CustomTools/CustomToolsData/@EntryValue"></s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Applicability/=File/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/CustomProperties/=Extension/@EntryIndexedValue">cs</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/CustomProperties/=FileName/@EntryIndexedValue">CMD</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/CustomProperties/=ValidateFileName/@EntryIndexedValue">False</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Description/@EntryValue">Mediatr CMD template</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=CMD_005FNAME/Expression/@EntryValue">getFileNameWithoutExtension()</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=CONTEXT_005FNAME/@KeyIndexDefined">True</s:Boolean>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=CONTEXT_005FNAME/Order/@EntryValue">3</s:Int64>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=NAMESPACE/Expression/@EntryValue">fileDefaultNamespace()</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=NAMESPACE/InitialRange/@EntryValue">-1</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Text/@EntryValue">using System.Threading.Tasks;
+using Application._Common.Interfaces.Persistence;
+using FluentValidation;
+using MediatR;
+
+namespace $NAMESPACE$
+{
+    public class $CMD_NAME$ : IRequest&lt;$RETURN_TYPE$&gt;
+    {
+    }
+
+    public class $CMD_NAME$Handler : IRequestHandler&lt;$CMD_NAME$, $RETURN_TYPE$&gt;
+    {
+        private readonly $CONTEXT_NAME$ _context;
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
+
+        public $CMD_NAME$Handler($CONTEXT_NAME$ context, IMediator mediator, IMapper mapper)
+        {
+            _context = context;
+            _mediator = mediator;
+            _mapper = mapper;
+        }
+
+        public async Task&lt;$RETURN_TYPE$&gt; Handle($CMD_NAME$ request, CancellationToken cancellationToken)
+        {
+            
+        }
+    }
+
+    public class $CMD_NAME$Validator : AbstractValidator&lt;$CMD_NAME$&gt;
+    {
+        public $CMD_NAME$Validator()
+        {
+        }
+    }
+ }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=CMD_005FNAME/@KeyIndexDefined">True</s:Boolean>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=CMD_005FNAME/Order/@EntryValue">1</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=NAMESPACE/@KeyIndexDefined">True</s:Boolean>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=NAMESPACE/Order/@EntryValue">0</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=RETURN_005FTYPE/@KeyIndexDefined">True</s:Boolean>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Field/=RETURN_005FTYPE/Order/@EntryValue">2</s:Int64>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Scope/=E8F0594528C33E45BBFEC6CFE851095D/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/Scope/=E8F0594528C33E45BBFEC6CFE851095D/Type/@EntryValue">InCSharpProjectFile</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=001F80B3FEEDC049968C6992C8B49D4F/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=001F80B3FEEDC049968C6992C8B49D4F/EntryName/@EntryValue">&lt;No Name&gt;</s:String>
+	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/QuickList/=F0CA621CDF5AB24282D8CDC11C520997/Entry/=001F80B3FEEDC049968C6992C8B49D4F/Position/@EntryValue">11</s:Int64>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=001F80B3FEEDC049968C6992C8B49D4F/UITag/@EntryValue">Class/Interface</s:String></wpf:ResourceDictionary>
