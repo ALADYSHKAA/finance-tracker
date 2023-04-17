@@ -25,7 +25,7 @@ router.beforeEach(async (toRote, from, next) => {
 });
 
 router.afterEach((to, from) => {
-    document.title = to.meta?.title || 'LinkOne';
+    document.title = to.meta?.title || 'Finance Tracker';
 });
 
 const originalPush = Router.prototype.push;
