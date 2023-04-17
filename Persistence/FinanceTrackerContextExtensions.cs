@@ -20,14 +20,14 @@ public static class FinanceTrackerDataModelBuilderExtensions
                     //SsoGuid = Guid.Parse("75AAA4FD-E365-45C4-BAE6-E8A8EA9A9ABC"),
                     Email = "sa@finance-tracker.ru",
                     FirstName = "Отто",
-                    LastName = "Нормалвербраухер",
+                    LastName = "Нормалвербраухер"
                 },
                 new User
                 {
                     Id = (long) WellKnownEmployeeIds.TestEmployee1,
                     Email = "stierlitz@finance-tracker.ru",
                     FirstName = "Всеволод",
-                    LastName = "Штирлиц",
+                    LastName = "Штирлиц"
                 },
                 new User
                 {
@@ -35,35 +35,35 @@ public static class FinanceTrackerDataModelBuilderExtensions
 
                     Email = "curie@finance-tracker.ru",
                     FirstName = "Мария",
-                    LastName = "Кюри",
+                    LastName = "Кюри"
                 },
                 new User
                 {
                     Id = (long) WellKnownEmployeeIds.TestEmployee3,
                     Email = "einstein@finance-tracker.ru",
                     FirstName = "Альберт",
-                    LastName = "Эйнштейн",
+                    LastName = "Эйнштейн"
                 },
                 new User
                 {
                     Id = (long) WellKnownEmployeeIds.TestEmployee4,
                     Email = "monroe@finance-tracker.ru",
                     FirstName = "Мерлин",
-                    LastName = "Монро",
+                    LastName = "Монро"
                 });
     }
 
     public static void SeedUsers(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>()
-            .HasData(new List<User>()
+            .HasData(new List<User>
             {
                 new()
                 {
                     Id = (long) WellKnownEmployeeIds.FinanceTrackerPlatform,
                     Email = "set-some-email-later@finance-tracker.ru",
                     FirstName = "Link",
-                    LastName = "One",
+                    LastName = "One"
                 }
             });
     }
@@ -77,14 +77,14 @@ public static class FinanceTrackerDataModelBuilderExtensions
                     Id = (long) PredefinedRoles.SuperAdmin,
                     Title = PredefinedRoles.SuperAdmin.ToString(),
                     Description = PredefinedRoles.SuperAdmin.GetDescription(),
-                    Created = new DateTime(2023, 04, 16, 0,0,0,0, DateTimeKind.Utc),
+                    Created = new DateTime(2023, 04, 16, 0, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Role
                 {
                     Id = (long) PredefinedRoles.RolesAdmin,
                     Title = PredefinedRoles.RolesAdmin.ToString(),
                     Description = PredefinedRoles.SuperAdmin.GetDescription(),
-                    Created = new DateTime(2023, 04, 16, 0,0,0,0, DateTimeKind.Utc),
+                    Created = new DateTime(2023, 04, 16, 0, 0, 0, 0, DateTimeKind.Utc)
                 }
             );
     }

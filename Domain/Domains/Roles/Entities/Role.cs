@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Domain.Common;
-using Domain.Domains.Roles.Enums;
+﻿using Domain.Common;
 
 namespace Domain.Domains.Roles.Entities;
 

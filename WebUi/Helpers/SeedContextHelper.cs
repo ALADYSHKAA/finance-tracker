@@ -15,7 +15,7 @@ public static class SeedContextHelper
         {
             var currentRolePermissions = allRolePermissions
                 .Where(x => x.RoleId == role.Id);
-                
+
             var id = (PredefinedRoles) role.Id;
             SeedData.RolesPermissions.TryGetValue(id, out var predefinedPermissions);
             if (predefinedPermissions is not null)
@@ -24,13 +24,15 @@ public static class SeedContextHelper
                     {
                         RoleId = role.Id,
                         PermissionId = x
-                    }).Concat(currentRolePermissions)
+                    })
+                    .Concat(currentRolePermissions)
                     .DistinctBy(x => x.PermissionId)
                     .ToList();
-                    
+
                 role.RolePermissions = rolesPermissions;
             }
         }
+
         await context.SaveChangesAsync(CancellationToken.None);
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Persistence;
 
-public partial class FinanceTrackerContext : DbContext, IFinanceTrackerContext
+public class FinanceTrackerContext : DbContext, IFinanceTrackerContext
 {
     private readonly IHostEnvironment _env;
     private readonly ILogger<FinanceTrackerContext> _logger;
@@ -31,20 +31,6 @@ public partial class FinanceTrackerContext : DbContext, IFinanceTrackerContext
     public DbSet<User> Users { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<RolePermission> RolePermissions { get; set; }
-
-    public void DetachAllEntities()
-    {
-        var changedEntriesCopy = ChangeTracker.Entries()
-            .Where(e => e.State is EntityState.Added or EntityState.Modified or EntityState.Deleted)
-            .ToList();
-
-        foreach (var entry in changedEntriesCopy) entry.State = EntityState.Detached;
-    }
-
-    public async Task<int> SaveChangesDefaultAsync(CancellationToken cancellationToken)
-    {
-        return await base.SaveChangesAsync(cancellationToken);
-    }
 
     public new async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
     {
@@ -98,6 +84,20 @@ public partial class FinanceTrackerContext : DbContext, IFinanceTrackerContext
             }
         }
 
+        return await base.SaveChangesAsync(cancellationToken);
+    }
+
+    public void DetachAllEntities()
+    {
+        var changedEntriesCopy = ChangeTracker.Entries()
+            .Where(e => e.State is EntityState.Added or EntityState.Modified or EntityState.Deleted)
+            .ToList();
+
+        foreach (var entry in changedEntriesCopy) entry.State = EntityState.Detached;
+    }
+
+    public async Task<int> SaveChangesDefaultAsync(CancellationToken cancellationToken)
+    {
         return await base.SaveChangesAsync(cancellationToken);
     }
     /*public async Task<int> ExecuteSqlRawAsync(string sql, CancellationToken cancellationToken)

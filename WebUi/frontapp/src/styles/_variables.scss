@@ -1,0 +1,29 @@
+﻿$isDev: false !default;
+$isProd: true !default;
+
+$primary: #5744D6; //#071ac3
+$secondary: #75909B; //#424242
+$accent: #4696EC; //#82B1FF
+$error: #F44336; //#FF5252
+$info: #607D8B; //#2196F3
+$success: #3ED483; //#12A54D
+$warning: #FF9B3F; //#F5620F
+
+$gradient: linear-gradient(67.64deg, #607D8B 28.69%, #FF9B3F 82.18%); //#F5620F
+
+$background-color: #ffffff;
+
+$header-height: 76px;
+$body-font-family: 'Open Sans', sans-serif;
+
+@import '../../node_modules/vuetify/src/styles/settings/index';
+@import '@/plugins/vuetify/variables';
+@import '../../node_modules/vuetify/src/components/VTextField/variables';
+
+$scrollbar-track-background: $background-color;
+$scrollbar-handle-color-passive: map-get($grey, 'lighten-1');
+$scrollbar-handle-color-active: $primary;
+
+$breakpointSmall: map-get($grid-breakpoints, 'sm');
+$breakpointMedium: map-get($grid-breakpoints, 'md');
+$breakpointLarge: map-get($grid-breakpoints, 'lg');

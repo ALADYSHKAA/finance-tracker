@@ -7,9 +7,13 @@ public class UserVm : IMapFrom<User>
 {
     public long Id { get; set; }
 
-    public string? Nickname { get; set; }
+    public string Email { get; set; }
 
-    public long? BotConversationId { get; set; }
+    public string? FirstName { get; set; }
+
+    public string? LastName { get; set; }
+
+    public string? Nickname { get; set; }
 
     public bool Disabled { get; set; }
 

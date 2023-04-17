@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Application._Common.Interfaces.Persistence;
+﻿using Application._Common.Interfaces.Persistence;
 using Application.Users.Vms;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -17,8 +16,8 @@ public class GetUserByIdQuery : IRequest<UserVm?>
 public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserVm?>
 {
     private readonly IFinanceTrackerContext _context;
-    private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+    private readonly IMediator _mediator;
 
     public GetUserByIdQueryHandler(IFinanceTrackerContext context, IMediator mediator, IMapper mapper)
     {

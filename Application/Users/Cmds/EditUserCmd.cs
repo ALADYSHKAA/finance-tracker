@@ -34,7 +34,7 @@ public class EditUserCmdHandler : IRequestHandler<EditUserCmd, long>
 
     public async Task<long> Handle(EditUserCmd request, CancellationToken cancellationToken)
     {
-        User? user = null ;
+        User? user = null;
 
         if (request.Id is not 0)
         {
@@ -42,7 +42,7 @@ public class EditUserCmdHandler : IRequestHandler<EditUserCmd, long>
             if (user is null) throw new NotFoundException(request.Id, nameof(User));
         }
 
-        user ??= new ();
+        user ??= new User();
 
         _mapper.Map(request, user);
 

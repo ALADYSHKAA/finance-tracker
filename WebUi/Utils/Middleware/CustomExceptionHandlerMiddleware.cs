@@ -1,83 +1,73 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Net;
 using Application._Common.Exceptions;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace WebUi.Utils.Middleware
+namespace WebUi.Utils.Middleware;
+
+public class CustomExceptionHandlerMiddleware
 {
-    public class CustomExceptionHandlerMiddleware
+    private readonly ILogger<CustomExceptionHandlerMiddleware> _logger;
+    private readonly RequestDelegate _next;
+
+    public CustomExceptionHandlerMiddleware(RequestDelegate next, ILogger<CustomExceptionHandlerMiddleware> logger)
     {
-        private readonly RequestDelegate _next;
-        private readonly ILogger<CustomExceptionHandlerMiddleware> _logger;
+        _next = next;
+        _logger = logger;
+    }
 
-        public CustomExceptionHandlerMiddleware(RequestDelegate next, ILogger<CustomExceptionHandlerMiddleware> logger)
+    public async Task Invoke(HttpContext context)
+    {
+        try
         {
-            _next = next;
-            _logger = logger;
+            await _next(context);
         }
-
-        public async Task Invoke(HttpContext context)
+        catch (Exception ex)
         {
-            try
-            {
-                await _next(context);
-            }
-            catch (Exception ex)
-            {
-                await HandleExceptionAsync(context, ex);
-            }
-        }
-
-        private Task HandleExceptionAsync(HttpContext context, Exception exception)
-        {
-            HttpStatusCode code;
-            var result = string.Empty;
-
-            switch (exception)
-            {
-                case ForbiddenException forbiddenException:
-                    code = HttpStatusCode.Forbidden;
-                    result = forbiddenException.Message;
-                    break;
-                case FinanceTrackerValidationException ft:
-                    code = HttpStatusCode.BadRequest;
-                    break;
-                case BadRequestException badRequestException:
-                    code = HttpStatusCode.BadRequest;
-                    result = badRequestException.Message;
-                    break;
-                case NotFoundException _:
-                    code = HttpStatusCode.NotFound;
-                    break;
-                default:
-                    code = HttpStatusCode.InternalServerError;
-                    _logger.LogError(exception,"internal server error", context.TraceIdentifier);
-                    break;
-                    
-
-            }
-
-            context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)code;
-
-            if (result == string.Empty)
-            {
-                result = JsonConvert.SerializeObject(new { error = exception.Message, actionId = context.TraceIdentifier});
-            }
-
-            return context.Response.WriteAsync(result);
+            await HandleExceptionAsync(context, ex);
         }
     }
 
-    public static class CustomExceptionHandlerMiddlewareExtensions
+    private Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
-        public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder builder)
+        HttpStatusCode code;
+        var result = string.Empty;
+
+        switch (exception)
         {
-            return builder.UseMiddleware<CustomExceptionHandlerMiddleware>();
+            case ForbiddenException forbiddenException:
+                code = HttpStatusCode.Forbidden;
+                result = forbiddenException.Message;
+                break;
+            case FinanceTrackerValidationException ft:
+                code = HttpStatusCode.BadRequest;
+                break;
+            case BadRequestException badRequestException:
+                code = HttpStatusCode.BadRequest;
+                result = badRequestException.Message;
+                break;
+            case NotFoundException _:
+                code = HttpStatusCode.NotFound;
+                break;
+            default:
+                code = HttpStatusCode.InternalServerError;
+                _logger.LogError(exception, "internal server error", context.TraceIdentifier);
+                break;
         }
+
+        context.Response.ContentType = "application/json";
+        context.Response.StatusCode = (int) code;
+
+        if (result == string.Empty)
+            result = JsonConvert.SerializeObject(new {error = exception.Message, actionId = context.TraceIdentifier});
+
+        return context.Response.WriteAsync(result);
+    }
+}
+
+public static class CustomExceptionHandlerMiddlewareExtensions
+{
+    public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder builder)
+    {
+        return builder.UseMiddleware<CustomExceptionHandlerMiddleware>();
     }
 }

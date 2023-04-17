@@ -7,7 +7,6 @@ namespace WebUi.Controllers;
 
 public class UsersController : BaseController
 {
-
     [HttpGet]
     [ProducesResponseType(typeof(List<UserVm>), 200)]
     public async Task<IActionResult> GetUsers()
@@ -16,21 +15,27 @@ public class UsersController : BaseController
         return Ok(result);
     }
 
+    [HttpGet("current")]
+    [ProducesResponseType(typeof(UserVm), 200)]
+    public async Task<IActionResult> GetCurrent()
+    {
+        var result = await Mediator.Send(new GetCurrentUserQuery());
+        return Ok(result);
+    }
+
     [HttpGet("/{id:long}")]
     [ProducesResponseType(typeof(UserVm), 200)]
     public async Task<IActionResult> GetUsers([FromRoute] long id)
     {
-        var result = await Mediator.Send(new GetUserByIdQuery() {Id = id});
+        var result = await Mediator.Send(new GetUserByIdQuery {Id = id});
         return Ok(result);
     }
 
     [HttpPost]
     [ProducesResponseType(typeof(long), 200)]
-    public async Task<IActionResult> EditUserCmd([FromBody] EditUserCmd query)
+    public async Task<IActionResult> EditUserCmd([FromBody] EditUserCmd cmd)
     {
-        var result = await Mediator.Send(query);
+        var result = await Mediator.Send(cmd);
         return Ok(result);
     }
-
-
 }

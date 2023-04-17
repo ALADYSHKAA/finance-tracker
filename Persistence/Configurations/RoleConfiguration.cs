@@ -1,5 +1,4 @@
-﻿
-using Domain.Domains.Roles.Entities;
+﻿using Domain.Domains.Roles.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -20,5 +19,3 @@ public class RolePermissionConfiguration : IEntityTypeConfiguration<RolePermissi
         builder.HasKey(x => new {x.RoleId, x.PermissionId});
     }
 }
-
-

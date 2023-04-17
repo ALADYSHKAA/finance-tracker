@@ -1,0 +1,7 @@
+{
+    "name": "FinanceTracker",
+    "short_name": "FT",
+    "theme_color": "#2f80ed",
+    "background_color": "#2f80ed",
+    "display": "standalone"
+}

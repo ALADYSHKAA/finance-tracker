@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace TypeScriptDictsFromEnumsGenerator.Resources
+namespace TypeScriptDictsFromEnumsGenerator.Resources;
+
+public static class CodeSnippets
 {
-    public static class CodeSnippets
+    public static Dictionary<string, string> TypeScriptSnippets = new()
     {
-        public static Dictionary<string, string> TypeScriptSnippets = new Dictionary<string, string>
         {
-            { "DeclaredTypes", @"
+            "DeclaredTypes", @"
 // tslint:disable
 // eslint-disable
 // ReSharper disable InconsistentNaming
@@ -73,8 +74,7 @@ export class IdTitleDescEnum {
     	}
 	}
 }
-" }
-        };
-    }
-
+"
+        }
+    };
 }

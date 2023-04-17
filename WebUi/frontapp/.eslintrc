@@ -1,0 +1,383 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "root": true,
+  "globals": {
+    "log": "writable"
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "parser": "@typescript-eslint/parser"
+  },
+  "overrides": [
+    {
+      "plugins": [
+        "arca",
+        "align-assignments",
+        "unused-imports"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "files": [
+        "**/*.ts",
+        "**/*.vue"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "sourceType": "module"
+      },
+      "rules": {
+        "no-console": 0,
+        "curly": [
+          "warn",
+          "multi-line"
+        ],
+        "align-assignments/align-assignments": [
+          1,
+          {
+            "requiresOnly": false
+          }
+        ],
+        "arca/import-align": [
+          "warn",
+          {
+            "collapseExtraSpaces": true
+          }
+        ],
+        "no-new-wrappers": "warn",
+        "comma-dangle": [
+          "warn",
+          {
+            "functions": "never",
+            "objects": "always-multiline",
+            "imports": "never",
+            "exports": "always",
+            "arrays": "always-multiline"
+          }
+        ],
+        "prefer-const": "warn",
+        "comma-style": [
+          "warn",
+          "last"
+        ],
+        "array-bracket-spacing": [
+          "warn",
+          "never"
+        ],
+        "multiline-ternary": [
+          "warn",
+          "always-multiline"
+        ],
+        "space-in-parens": [
+          "warn",
+          "never"
+        ],
+        "no-nested-ternary": "warn",
+        "no-unneeded-ternary": "warn",
+        "space-before-function-paren": [
+          "warn",
+          "never"
+        ],
+        "space-before-blocks": [
+          "warn",
+          "always"
+        ],
+        "padded-blocks": [
+          "warn",
+          "never"
+        ],
+        "eqeqeq": "warn",
+        "keyword-spacing": "off",
+        "@typescript-eslint/no-this-alias": 0,
+        "no-iterator": "warn",
+        "operator-linebreak": [
+          "warn",
+          "before",
+          {
+            "overrides": {
+              "=": "after",
+              "= {": "after"
+            }
+          }
+        ],
+        "no-duplicate-imports": "warn",
+        "no-useless-constructor": "warn",
+        "implicit-arrow-linebreak": [
+          "warn",
+          "beside"
+        ],
+        "arrow-parens": [
+          "error",
+          "as-needed"
+        ],
+        "@typescript-eslint/no-unused-vars": [
+          "warn"
+        ],
+        "@typescript-eslint/no-explicit-any": 0,
+        "prefer-spread": "warn",
+        "no-new-func": "warn",
+        "prefer-rest-params": "warn",
+        "object-curly-spacing": [
+          "warn",
+          "never"
+        ],
+        "arrow-spacing": "warn",
+        "func-style": [
+          "warn",
+          "expression"
+        ],
+        "indent": [
+          "warn",
+          4
+        ],
+        "max-len": [
+          0,
+          {
+            "tabWidth": 4
+          }
+        ],
+        "object-shorthand": [
+          "warn",
+          "always"
+        ],
+        "quote-props": [
+          "warn",
+          "as-needed"
+        ],
+        "no-new-object": "warn",
+        "no-self-assign": [
+          "warn",
+          {
+            "props": false
+          }
+        ],
+        "no-redeclare": "warn",
+        "no-lonely-if": "warn",
+        "no-multiple-empty-lines": [
+          1,
+          {
+            "max": 1
+          }
+        ],
+        "new-parens": "warn",
+        "block-spacing": "warn",
+        "no-const-assign": "error",
+        "no-this-before-super": "warn",
+        "no-reserved-keys": 0,
+        "constructor-super": "warn",
+        "valid-typeof": "warn",
+        "semi": [
+          "warn",
+          "always",
+          {
+            "omitLastInOneLineBlock": false
+          }
+        ],
+        "quotes": [
+          "warn",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "singleline-html-element-content-newline": 0,
+        "no-extra-semi": "error",
+        "callback-return": "warn",
+        "no-constant-condition": "warn",
+        "no-unreachable": "warn",
+        "no-dupe-keys": "error",
+        "no-dupe-class-members": "error",
+        "key-spacing": "off",
+        "vue/script-indent": [
+          "error",
+          4,
+          {
+            "baseIndent": 0
+          }
+        ]
+      }
+    },
+    {
+      "plugins": [
+        "eslint-plugin-vue"
+      ],
+      "files": [
+        "**/*.vue"
+      ],
+      "parser": "vue-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "allowImportExportEverywhere": true,
+        "sourceType": "module",
+        "ecmaVersion": 2018,
+        "ecmaFeatures": {
+          "globalReturn": false,
+          "impliedStrict": false,
+          "jsx": false
+        }
+      },
+      "rules": {
+        "align-assignments/align-assignments": [
+          1,
+          {
+            "requiresOnly": false
+          }
+        ],
+        "arca/import-align": [
+          "warn",
+          {
+            "collapseExtraSpaces": true
+          }
+        ],
+        //"arca/curly": ["warn", "multi-line"],
+        "arca/import-absolutes": [
+          "warn"
+        ],
+        "arca/import-ordering": [
+          "warn"
+        ],
+        "arca/melted-constructs": [
+          "warn"
+        ],
+        "arca/newline-after-import-section": [
+          "warn"
+        ],
+        "vue/attribute-hyphenation": 0,
+        "vue/html-quotes": 0,
+        "vue/attributes-order": [
+          1,
+          {
+            "order": [
+              "CONDITIONALS",
+              "LIST_RENDERING",
+              "RENDER_MODIFIERS",
+              "GLOBAL",
+              "UNIQUE",
+              "OTHER_ATTR",
+              "EVENTS",
+              "CONTENT",
+              "DEFINITION"
+            ]
+          }
+        ],
+        "vue/valid-v-slot": [
+          "error",
+          {
+            "allowModifiers": true
+          }
+        ],
+        "vue/component-name-in-template-casing": [
+          "warn",
+          "PascalCase",
+          {
+            "registeredComponentsOnly": true,
+            "ignores": []
+          }
+        ],
+        "vue/component-definition-name-casing": [
+          "warn",
+          "PascalCase"
+        ],
+        "vue/order-in-components": [
+          "error",
+          {
+            "order": [
+              "el",
+              "name",
+              "parent",
+              "functional",
+              [
+                "delimiters",
+                "comments"
+              ],
+              [
+                "components",
+                "directives",
+                "filters"
+              ],
+              "extends",
+              "mixins",
+              "inheritAttrs",
+              "model",
+              "fetch",
+              "head",
+              [
+                "props",
+                "propsData"
+              ],
+              "data",
+              "computed",
+              "watch",
+              "LIFECYCLE_HOOKS",
+              "methods",
+              [
+                "template",
+                "render"
+              ],
+              "renderError"
+            ]
+          }
+        ],
+        "vue/no-reserved-keys": [
+          "warn",
+          {
+            "reserved": [],
+            "groups": []
+          }
+        ],
+        "vue/no-shared-component-data": [
+          "warn"
+        ],
+        "vue/no-dupe-keys": 2,
+        "vue/valid-v-else-if": [
+          "warn"
+        ],
+        "vue/valid-v-on": [
+          "warn"
+        ],
+        "vue/no-arrow-functions-in-watch": [
+          "warn"
+        ],
+        "vue/no-side-effects-in-computed-properties": [
+          "warn"
+        ],
+        "vue/valid-v-bind": [
+          "warn"
+        ],
+        "vue/no-duplicate-attributes": [
+          "warn"
+        ],
+        "vue/require-default-prop": 0,
+        "vue/require-component-is": [
+          "warn"
+        ],
+        "vue/max-attributes-per-line": [
+          2,
+          {
+            "singleline": 5,
+            "multiline": 1
+          }
+        ],
+        "vue/prop-name-casing": 0,
+        "vue/html-indent": [
+          "error",
+          4,
+          {
+            "attribute": 1,
+            "closeBracket": 0,
+            "ignores": []
+          }
+        ],
+        "vue/this-in-template": [
+          "error",
+          "never"
+        ]
+      }
+    }
+  ]
+}
